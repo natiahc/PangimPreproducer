@@ -1,13 +1,6 @@
-QT -= gui
+QT += qml quick
 
-CONFIG += c++11 console
-CONFIG -= app_bundle
-
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which as been marked deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
-DEFINES += QT_DEPRECATED_WARNINGS
+TEMPLATE = app
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -17,16 +10,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DESTDIR = $$PWD/../../../Build/bin
 
 CONFIG(debug, debug|release) {
-    TARGET = PangimPreproducerD
+    TARGET = PangimPreproducerd
 } else {
     TARGET = PangimPreproducer
 }
 
 DEFINES += PANGIM_PREPRODUCER_LIBRARY
 
-SOURCES += main.cpp \
-    App.cpp
+SOURCES += \
+    App.cpp \
+    Main.cpp
 
 HEADERS += \
     pangim_preproducer_global.h \
     App.h
+
+include(../Gui/Gui.pri)
